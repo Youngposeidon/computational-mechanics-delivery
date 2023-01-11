@@ -1,4 +1,4 @@
 # computational-mechanics
 # For PHYS 2200 Mechanics
-Mechanics worksheets created in Python notebooks
+Mechanics worksheets using Python notebooks
 My Fork for completeing assignments
