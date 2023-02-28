@@ -24,8 +24,13 @@ def plot(xAxis, yAxis, xTitle, yTitle):
 # on a single plot
 def multiplot(xAxis, yAxes, ylbls, xTitle, yTitle):
     plt.figure(figsize=(7, 5))
-    for ii in range(len(yAxes)):
-        plt.plot(xAxis, yAxes[ii], label=ylbls[ii])
+    # checks if the x has multiple dimensions, if so plots each with corresponding y, if not goes with the standard way
+    if len(xAxis) > 1:
+        for ii in range(len(yAxes)):
+            plt.plot(xAxis[ii], yAxes[ii], label=ylbls[ii])
+    else:
+        for ii in range(len(yAxes)):
+            plt.plot(xAxis, yAxes[ii], label=ylbls[ii])
     plt.xlabel(xTitle)
     plt.ylabel(yTitle)
     plt.grid()
