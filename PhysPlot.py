@@ -8,6 +8,7 @@
 
 import matplotlib.pyplot as plt
 import math
+import numpy as np
 from mpl_toolkits import mplot3d
 
 
@@ -24,12 +25,13 @@ def plot(xAxis, yAxis, xTitle, yTitle):
 # on a single plot
 def multiplot(xAxis, yAxes, ylbls, xTitle, yTitle):
     plt.figure(figsize=(7, 5))
-    # checks if the x has multiple dimensions, if so plots each with corresponding y, if not plots each y against x
-    if len(xAxis) > 1:
-        for ii in range(len(yAxes)):
+    multy_x = isinstance(xAxis[0], (list, np.ndarray))
+    for ii in range(len(yAxes)):
+        if multy_x:
+            # Assume there is an idependent axis for each dependent one
             plt.plot(xAxis[ii], yAxes[ii], label=ylbls[ii])
-    else:
-        for ii in range(len(yAxes)):
+        else:
+            # Assume all plots share the same dependent axis
             plt.plot(xAxis, yAxes[ii], label=ylbls[ii])
     plt.xlabel(xTitle)
     plt.ylabel(yTitle)
