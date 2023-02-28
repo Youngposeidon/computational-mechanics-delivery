@@ -24,7 +24,7 @@ def plot(xAxis, yAxis, xTitle, yTitle):
 # on a single plot
 def multiplot(xAxis, yAxes, ylbls, xTitle, yTitle):
     plt.figure(figsize=(7, 5))
-    # checks if the x has multiple dimensions, if so plots each with corresponding y, if not goes with the standard way
+    # checks if the x has multiple dimensions, if so plots each with corresponding y, if not plots each y against x
     if len(xAxis) > 1:
         for ii in range(len(yAxes)):
             plt.plot(xAxis[ii], yAxes[ii], label=ylbls[ii])
